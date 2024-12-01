@@ -1,1 +1,47 @@
-<p>header works!</p>
+<style>
+  .nav-bar {
+    border: 1px solid red;
+
+    display: block flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-bar .nav-list {
+    border: 1px solid blue;
+
+    display: inline flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-bar .nav-list .nav-bar-item {
+    padding: 1em .5em;
+    border: 1px solid green;
+
+    text-decoration: none;
+  }
+
+  .nav-bar .logo-container {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background-color: orange;
+  }
+
+
+</style>
+
+<nav class="nav-bar">
+  <div class="nav-list">
+    <a class="nav-bar-item">Chi siamo</a>
+    <a class="nav-bar-item">Esplora</a>
+    <a class="nav-bar-item">Sorprendimi!</a>
+  </div>
+  <div class="logo-container"></div>
+  <div class="nav-list">
+    <textarea class="search-box"></textarea>
+    <button>Accedi</button>
+  </div>
+</nav>
