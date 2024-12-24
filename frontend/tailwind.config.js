@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     "./src/**/*.{html,ts}",
@@ -14,6 +17,9 @@ module.exports = {
         'personal-palette-blush': '#C86680',
         'personal-palette-magenta-haze': '#A04B7F',
         'personal-palette-english-violet': '#48304D',
+      },
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"]
       }
     },
   },

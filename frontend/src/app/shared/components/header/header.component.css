@@ -1,54 +1,34 @@
 .nav-bar {
-  @apply w-screen h-[50px] m-0 px-4
+  @apply w-screen min-h-16 py-3 px-5
          flex flex-row justify-between items-center
-         bg-personal-palette-light-coral text-white
+         border border-x-0 border-t-0 border-gray-700 border-opacity-30
 }
 
-.nav-list {
-  @apply w-1/3 h-auto m-0 px-4
-         flex flex-row justify-between items-center
+.menu-area {
+  @apply flex items-center space-x-2 justify-center items-center
 }
-
-.logo-container {
-  @apply w-[100px] h-[100px] m-0 p-3
-         bg-blue-800 rounded-full
-         z-[1]
+.menu-area .logo-image {
+  @apply inline-block w-[30px] h-[30px]
 }
-
-
-/*
-<style>
- .nav-bar {
-   border: 1px solid red;
-
-   display: block flex;
-   flex-direction: row;
-   justify-content: space-between;
-   align-items: center;
- }
-
-.nav-bar .nav-list {
-  border: 1px solid blue;
-
-  display: inline flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav-bar .nav-list .nav-bar-item {
-  padding: 1em .5em;
-  border: 1px solid green;
-
-  text-decoration: none;
-}
-
-.nav-bar .logo-container {
-  width: 60px; height: 60px;
-  border-radius: 50%;
-  background-color: orange;
+.menu-area .logo-title {
+  @apply text-xl font-bold
 }
 
 
-</style>
-*/
+.search-box {
+  @apply w-[60%] h-auto px-4
+         flex flex-row justify-center items-center
+         border-b-2
+}
+.search-box .search-field {
+  @apply w-full p-1
+         bg-transparent outline-0
+}
+.search-box .search-field-placeholder {
+  @apply placeholder:font-bold placeholder:opacity-25 placeholder:italic
+}
+
+.login-area {
+  @apply flex items-center text-base
+}
+
