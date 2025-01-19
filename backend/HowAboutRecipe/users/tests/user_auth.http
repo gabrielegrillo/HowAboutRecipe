@@ -1,0 +1,17 @@
+
+
+
+
+
+
+POST http://127.0.0.1:8000/api/users/register/
+Content-Type: application/json
+
+
+{
+"username": "giuseppe",
+"first_name": "Giuseppe",
+"last_name": "Lavorato",
+"password": "pwd23!"
+}
+
