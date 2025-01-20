@@ -1,0 +1,76 @@
+
+.dashboard-container {
+    @apply  min-w-[100vw] min-h-screen 
+            bg-blue-100/50
+            grid grid-rows-1 grid-cols-9;
+}
+
+/* ---- Dashboard SideBar ---- */
+.dashboard-container .dashboard-sidebar {
+    @apply min-w-full min-h-full col-span-2 p-4;
+}
+
+.dashboard-sidebar .dashboard-menu {
+    @apply  w-full h-full py-5
+            rounded-3xl bg-gradient-to-br from-blue-200 to-blue-300
+            flex flex-col justify-between items-center;
+}
+
+.dashboard-menu .menu-content-container {
+    @apply  w-full h-min p-3;
+}
+
+.dashboard-menu .menu-content-container .menu-item {
+    @apply px-3 py-1 flex justify-center items-center space-x-3;  
+}
+.dashboard-menu .menu-content-container .menu-item.btn {
+    @apply transition-all ease-in-out hover:text-purple-800 hover:font-bold;
+}
+
+.dashboard-menu .menu-content-container .menu-item.welcome-massage {
+    @apply flex-col space-x-0;
+}
+.dashboard-menu .menu-content-container .menu-item.welcome-massage *:nth-child(2) {
+    @apply text-2xl font-bold;
+}
+
+/* ---- Dashboard Content ---- */
+.dashboard-content-container {
+    @apply col-span-7 p-6;
+}
+
+
+/* ---- Dashboard Top Navigation ---- */
+.dashboard-content-container .top-navigation {
+    @apply w-full h-auto flex justify-between items-center;
+}
+
+/* ---- Dashboard Top Navigation: Path ---- */
+.top-navigation .dashboard-path {
+    @apply flex flex-col justify-start
+}
+.top-navigation .dashboard-path .path-container {
+    @apply flex items-center space-x-0;
+}
+.top-navigation .dashboard-path .path-container * {
+    @apply text-gray-800 hover:text-purple-800 cursor-pointer;
+}
+.top-navigation .dashboard-path .path-container *:not(:last-child) {
+    @apply after:content-['/'] after:px-2 after:hover:text-gray-600
+}
+
+.top-navigation .dashboard-path .page-title {
+    @apply text-3xl font-bold;
+}
+
+/* ---- Dashboard Top Navigation: Home button ---- */
+.top-navigation .home-button-container {
+    @apply flex justify-center items-center;
+}
+
+
+/* ---- Dashboard Real Content ---- */
+.dashboard-content-container .dashboard-content {
+    @apply w-full h-full p-6;
+}
+

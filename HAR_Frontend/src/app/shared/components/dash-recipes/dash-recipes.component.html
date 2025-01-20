@@ -1,1 +1,63 @@
-<p>dash-recipes works!</p>
+<div class="container">
+    <div class="recipe-card-container">
+        @for(recipe of this.userRecipes; track recipe) {
+            <article class="recipe-card">
+                <div class="image-container">
+                    <div class="image-box">
+                        <img [src]="getImagePath(recipe.title)" [alt]="recipe.title" [title]="recipe.title" loading="lazy">
+                    </div>
+                </div>
+                <div class="text-container">
+                    <p class="title">{{ recipe.title }}</p>
+                    <p class="description">{{ recipe.description }}<p>
+                </div>
+                <div class="buttons-container">
+                    <a title="Delete this Recipe" class="delete-button btn group" (click)="doDelete(recipe.id)">
+                        <i class="bx bxs-x-square bx-sm group-hover:scale-150"></i>
+                    </a>
+                    <a [routerLink]="'/recipes/update?recipe_id='+ recipe.id" title="Edit this Recipe" class="edit-button btn group">
+                        <i class="bx bx-edit-alt bx-sm group-hover:scale-150"></i>
+                    </a>
+                    <a title="Make this Recipe Private" class="private-button btn group" (click)="makePrivate(recipe.id)">
+                        <i class="bx bx-minus-circle bx-sm group-hover:scale-150"></i>
+                    </a>
+                </div>
+                <ul class="tags-list">
+                    @for(tagItem of recipe.tags; track tagItem.id) {
+                        <li class="tag">
+                            <a [routerLink]="'/tags/' + tagItem.id" [title]="tagItem.name">{{ tagItem.name }}</a>
+                        </li>
+                    }
+                </ul>
+            </article>
+        }
+        <!-- <div class="recipe-card">
+            <div class="image-container">
+                <div class="image-box">
+                    <img src="/images/image-showcase-1.jpg" alt="">
+                </div>
+            </div>
+            <div class="text-container">
+                <p class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis in reprehenderit ea, reiciendis vero magni nihil corrupti totam ullam eos. Sed ducimus, mollitia delectus tempore rem deleniti iusto. Suscipit, fugit.</p>
+                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, minus doloremque inventore assumenda facilis aperiam in laudantium officia quod odit ex eveniet veritatis sed! Porro cum quasi, quia odio consectetur dolorem, sed placeat tempora ea, laudantium rerum deserunt voluptatem error. Debitis eligendi omnis quo magnam assumenda facere voluptate quaerat autem!<p>
+            </div>
+            <div class="buttons-container">
+                <a title="Delete this Recipe" class="delete-button btn group" (click)="doDelete('recipe.id')">
+                    <i class="bx bxs-x-square bx-sm group-hover:scale-150"></i>
+                </a>
+                <a title="Edit this Recipe" class="edit-button btn group">
+                    <i class="bx bx-edit-alt bx-sm group-hover:scale-150"></i>
+                </a>
+                <a title="Make this Recipe Private" class="private-button btn group" (click)="makePrivate('recipe.id')">
+                    <i class="bx bx-minus-circle bx-sm group-hover:scale-150"></i>
+                </a>
+            </div>
+            <ul class="tags-list">
+                <li class="tag"><a>Tag Lungo</a></li>
+                <li class="tag"><a>Tag</a></li>
+                <li class="tag"><a>Tag Lunghissimissimo</a></li>
+            </ul>
+        </div> -->
+
+    </div>
+</div>

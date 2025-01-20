@@ -1,1 +1,50 @@
-<p>dashboard works!</p>
+<main class="main-container">
+    <div class="dashboard-container min-w-[100vw]">
+        <aside class="dashboard-sidebar">
+            <div class="dashboard-menu">
+                <div class="menu-content-container">
+                    <div class="menu-item welcome-massage">
+                        <p>Welcome,</p>
+                        <p>{{ getUserName() }}</p>
+                    </div>
+                </div>
+                <div class="menu-content-container">
+                    <a routerLink="/dashboard" class="menu-item btn">Overview</a>
+                    <a routerLink="/dashboard/recipes" class="menu-item btn">My Recipes</a>
+                </div>
+                <div class="menu-content-container">
+                    <a class="menu-item btn" (click)="doLogOut()">
+                        <p>Log Out</p>
+                        <i class="bx bx-log-out bx-sm"></i>
+                    </a>
+                    <a routerLink="/dashboard/settings" class="menu-item btn">
+                        <p>Settings</p>
+                        <i class="bx bx-cog bx-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </aside>
+        <div class="dashboard-content-container">
+            <div class="top-navigation">
+                <div class="dashboard-path">
+                    <div class="path-container">
+                        @for (pathPiece of this.currentPathToContent; track pathPiece) {
+                            <p>{{ pathPiece }}</p>
+                        }
+                    </div>
+                    <div class="page-title">{{ currentPathToContent[currentPathToContent.length - 1] }}</div>
+                </div>
+                <div class="home-button-container">
+                    <a routerLink="/home" class="btn btn-default btn-purple-full">
+                        <i class="bx bxs-home bx-sm"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="dashboard-content">
+                <router-outlet />
+            </div>
+        </div>
+    </div>
+</main>
+
+

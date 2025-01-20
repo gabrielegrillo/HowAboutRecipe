@@ -1,1 +1,29 @@
-<p>dash-basic works!</p>
+<div class="container">
+    <div class="recipe-show-container">
+        <div class="new-recipe-button-container recipe-card">
+            <a routerLink="/dashboard/recipes/new" class="new-recipe-btn btn group">
+                <i class="bx bx-plus-circle bx-lg group-hover:scale-150"></i>
+                <p>Want to create something new?</p>
+            </a>
+        </div>
+        <div class="line-divider"></div>
+        <div class="recipe-cards-container">
+            @for(recipe of this.userRecipes; track recipe) {
+                <article class="recipe-card">
+                    <div class="card-image">
+                        <img [src]="getImagePath(recipe.title)" [alt]="recipe.title" [title]="recipe.title" loading="lazy">
+                    </div>
+                    <h1 class="title">{{ recipe.title }}</h1>
+                    <div class="button-container">
+                        <a [routerLink]="'/recipes/info/'+ recipe.id" title="More Options" class="more-options-button btn group text-shadow-purple">
+                            <i class="bx bx-dots-horizontal-rounded bx-sm group-hover:scale-150"></i>
+                        </a>
+                        <a [routerLink]="'/recipes/update?recipe_id='+ recipe.id" title="Edit this Recipe" class="see-more-button btn btn-purple-full group text-shadow-purple">
+                            <i class="bx bx-chevron-right bx-md group-hover:scale-150"></i>
+                        </a>
+                    </div>
+                </article>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+.container {
+    @apply w-full h-[550px];
+}
+
+.container .recipe-card-container {
+    @apply  w-full max-h-full overflow-y-scroll
+            grid grid-flow-row gap-6;
+}
+/* --- Scrollbar --- */
+.container .recipe-card-container::-webkit-scrollbar { @apply w-0 h-0; }
+.container .recipe-card-container::-webkit-scrollbar-track { @apply bg-transparent; }
+.container .recipe-card-container::-webkit-scrollbar-thumb,
+.container .recipe-card-container::-webkit-scrollbar-thumb:hover { @apply bg-transparent rounded-xl; }
+
+/* --- Recipe Card --- */
+.recipe-card-container .recipe-card {
+    @apply  w-full h-[200px] 
+            rounded-2xl bg-gradient-to-br from-blue-300 to-blue-400
+            grid grid-rows-3 grid-cols-8;
+}
+
+/* ---- Recipe Card: Image ---- */
+.recipe-card .image-container {
+    @apply  w-full h-full p-4
+            row-span-3 col-span-2;
+}
+.recipe-card-container .recipe-card .image-container .image-box {
+    @apply  w-full h-full z-10 
+            relative overflow-hidden
+            border-none rounded-xl 
+            flex justify-center items-center
+            transition-all ease-in-out
+            /* ---- Before: Inset Shadow on Image ---- */
+            before:block before:w-full before:h-full
+            before:absolute before:top-0 before:left-0
+            before:bg-transparent before:rounded-xl 
+            before:shadow-[inset_0px_5px_15px_-3px_rgba(0,_0,_0,_0.35)];
+}
+.recipe-card-container .recipe-card .image-container .image-box img {
+    @apply w-full h-full object-cover;
+}
+
+/* ---- Recipe Card: Text ---- */
+.recipe-card-container .recipe-card .text-container {
+    @apply  w-full h-full row-span-2 col-span-5 py-4 px-6;
+}
+
+.recipe-card-container .recipe-card .text-container .title {
+    @apply font-bold text-2xl line-clamp-2 text-ellipsis mb-2;
+}
+.recipe-card-container .recipe-card .text-container .description {
+    @apply opacity-70 text-sm line-clamp-2 text-ellipsis;
+}
+
+/* ---- Recipe Card: Tag List ---- */
+.recipe-card-container .recipe-card .tags-list {
+    @apply  w-full h-full py-4 px-6 relative overflow-x-scroll
+            row-span-1 col-span-5
+            rounded-md 
+            flex flex-row space-x-2 flex-nowrap 
+            text-white text-xs uppercase;
+}
+.recipe-card-container .recipe-card .tags-list::-webkit-scrollbar { @apply w-2 h-2; }
+.recipe-card-container .recipe-card .tags-list::-webkit-scrollbar-track { @apply bg-transparent; }
+.recipe-card-container .recipe-card .tags-list::-webkit-scrollbar-thumb,
+.recipe-card-container .recipe-card .tags-list::-webkit-scrollbar-thumb:hover { @apply bg-transparent rounded-xl; }
+
+.recipe-card-container .recipe-card .tags-list .tag {
+    @apply  h-min py-1 px-2 whitespace-nowrap
+            rounded-md bg-purple-700;
+}
+
+
+/* ---- Recipe Card: Buttons ---- */
+.recipe-card-container .recipe-card .buttons-container {
+    @apply  w-full h-full p-4 row-span-3 col-span-1
+            flex flex-col justify-around items-center;
+}
+.recipe-card-container .recipe-card .buttons-container .btn {
+    @apply  w-12 h-12
+            rounded-lg bg-gradient-to-br
+            flex justify-center items-center
+            text-white font-bold;
+}
+.recipe-card-container .recipe-card .buttons-container .btn i {
+    @apply transition-all ease-out;
+}
+.recipe-card-container .recipe-card .buttons-container .btn.delete-button { @apply from-red-500 to-red-700; }
+.recipe-card-container .recipe-card .buttons-container .btn.edit-button { @apply from-purple-500 to-purple-700; }
+.recipe-card-container .recipe-card .buttons-container .btn.private-button { @apply from-blue-500 to-blue-700; }

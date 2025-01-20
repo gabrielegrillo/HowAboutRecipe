@@ -1,0 +1,81 @@
+.container {
+    @apply w-full h-full flex flex-col justify-start items-start;
+}
+.btn i {
+    @apply text-white transition-all ease-in-out;
+}
+
+.container .recipe-show-container {
+    @apply w-full h-[300px] flex items-center
+
+}
+.recipe-show-container .recipe-card {
+    @apply  min-w-[200px] max-w-[200px] min-h-[300px] max-h-[300px] p-3 relative
+            rounded-2xl bg-pink-300
+}
+
+/* ---- New Recipe Button ---- */
+.recipe-show-container .recipe-card.new-recipe-button-container {
+    @apply  bg-gradient-to-br from-pink-300 to-pink-500 text-white
+            flex justify-center items-center
+            /* ---- Before: Inside Border ---- */
+            before:block before:w-[calc(100%_-_2rem)] before:h-[calc(100%_-_2rem)] 
+            before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2
+            before:rounded-2xl before:border-4 before:border-dashed before:border-white
+            before:pointer-events-none;
+}
+.recipe-show-container .new-recipe-button-container .new-recipe-btn {
+    @apply w-full px-3 text-center space-y-1;
+}
+.recipe-show-container .new-recipe-button-container .new-recipe-btn p {
+    @apply text-sm text-center
+}
+
+.recipe-show-container .line-divider {
+    @apply w-1 h-[80%] mx-3 rounded-full border-2 border-blue-400
+}
+
+/* ---- Recipe Container ---- */
+.recipe-show-container .recipe-cards-container {
+    @apply  w-min max-w-full h-full overflow-x-auto
+            grid grid-flow-col gap-6;
+}
+
+.recipe-show-container .recipe-cards-container::-webkit-scrollbar { @apply w-0 h-0; }
+.recipe-show-container .recipe-cards-container::-webkit-scrollbar-track { @apply bg-transparent; }
+.recipe-show-container .recipe-cards-container::-webkit-scrollbar-thumb,
+.recipe-show-container .recipe-cards-container::-webkit-scrollbar-thumb:hover { @apply bg-transparent rounded-xl; }
+
+/* ---- Recipe Card: Image ---- */
+.recipe-cards-container .recipe-card .card-image {
+    @apply w-full h-28 z-10 
+            relative overflow-hidden
+            border-none rounded-xl 
+            flex justify-center items-center
+            transition-all ease-in-out
+            /* ---- Before: Inset Shadow on Image ---- */
+            before:block before:w-full before:h-full
+            before:absolute before:top-0 before:left-0
+            before:bg-transparent before:rounded-xl 
+            before:shadow-[inset_0px_5px_15px_-3px_rgba(0,_0,_0,_0.35)];
+}
+.recipe-cards-container .recipe-card .card-image img {
+    @apply w-full h-full object-cover;
+}
+
+/* ---- Recipe Card: Text ---- */
+.recipe-cards-container .recipe-card .title {
+    @apply mt-3 font-bold text-xl line-clamp-3 text-ellipsis;
+}
+
+/* ---- Recipe Card: Buttons ---- */
+.recipe-cards-container .recipe-card .button-container {
+    @apply  w-[90%] h-auto 
+            absolute bottom-2 left-1/2 -translate-x-1/2
+            flex justify-between items-center
+}
+.recipe-cards-container .recipe-card .button-container .see-more-button {
+    @apply  w-10 h-auto px-2 py-1 
+            rounded-lg rounded-br-2xl rounded-tl-2xl
+            flex justify-center items-center;
+}

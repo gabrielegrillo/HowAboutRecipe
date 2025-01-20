@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RecipeInterface } from '../utils/types/recipe.interfaces';
 import { Observable } from 'rxjs';
@@ -18,9 +18,12 @@ export class RecipeService {
     return this.httpClient.get<RecipeInterface[]>(this.serverUrl + `tag/${tag}/`);
   }
 
-  getRecipesGenerics():
-  Observable<RecipeInterface[]> {
+  getRecipesGenerics(): Observable<RecipeInterface[]> {
     return this.httpClient.get<RecipeInterface[]>(this.serverUrl + 'home/');
+  }
+
+  getRecipesOfUser(username: string): Observable<RecipeInterface[]> {
+    return this.httpClient.get<RecipeInterface[]>(this.serverUrl + `user/${username}/`);
   }
 
   // Utils 

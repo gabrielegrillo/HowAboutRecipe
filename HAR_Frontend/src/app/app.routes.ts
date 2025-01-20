@@ -27,21 +27,21 @@ export const routes: Routes = [
     loadComponent: () => import('./business/recipe/recipe.component').then((c) => c.RecipeComponent),
   },
 
-  // { 
-  //   path: 'dashboard', 
-  //   loadComponent: () => import('./business/dashboard/dashboard.component').then((c) => c.DashboardComponent ) ,
-  //   children: [
-  //     {
-  //       path: '', 
-  //       component: DashBasicComponent
-  //     },
-  //     {
-  //       path: '/recipes',
-  //       component: DashRecipesComponent
-  //     }
-  //   ],
-  //   canActivate: [authGuard]
-  // },
+  { 
+    path: 'dashboard', 
+    loadComponent: () => import('./business/dashboard/dashboard.component').then((c) => c.DashboardComponent ) ,
+    children: [
+      {
+        path: '', 
+        component: DashBasicComponent
+      },
+      {
+        path: 'recipes',
+        component: DashRecipesComponent
+      }
+    ],
+    canActivate: [authGuard]
+  },
 
 
   /* Lazy Loading -> loadComponent: () => import('./business/home/home.component').then((c) => c.HomeComponent ) */

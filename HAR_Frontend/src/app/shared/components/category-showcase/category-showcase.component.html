@@ -9,7 +9,7 @@
             @for(recipe of this.recipesToShow; track recipe) {
                 <article [class]="'card ' + this.cardStyle">
                         <div class="card-image">
-                            <img [src]="getImagePath(recipe.title)" [alt]="recipe.title" [title]="recipe.title">
+                            <img [src]="getImagePath(recipe.title)" [alt]="recipe.title" [title]="recipe.title" loading="lazy">
                         </div>
                         <ul class="card-info">
                             <li class="time">
