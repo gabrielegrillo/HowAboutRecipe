@@ -14,6 +14,6 @@ export class HeaderComponent {
   authService = inject(AuthService);
 
   doLogOut(): void {
-    this.authService.logOutUser();
+    this.authService.logUserOut();
   }
 }

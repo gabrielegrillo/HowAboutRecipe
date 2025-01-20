@@ -67,7 +67,7 @@ export class LoginComponent implements AfterViewInit {
       console.log('Form Data', this.form_signIn.value)
       console.log(this.form_signIn.getRawValue() as UserLoginAuthInterface)
 
-      this.authService.logUser(this.form_signIn.getRawValue() as UserLoginAuthInterface);
+      this.authService.logUserIn(this.form_signIn.getRawValue() as UserLoginAuthInterface);
     }
   }
 

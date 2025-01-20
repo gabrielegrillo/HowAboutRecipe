@@ -1,0 +1,31 @@
+.main-container {
+    @apply bg-gradient-to-b from-pink-100/50 to-pink-200
+}
+
+.default-size-container {
+    @apply w-full flex flex-col justify-center items-center;
+}
+.default-size-container .image-container {
+    @apply  w-[400px] h-[250px] relative overflow-hidden
+            flex justify-center items-center;
+}
+
+.image-container .image-404 {
+    @apply  w-[520px] h-[400px] absolute
+            bg-gradient-to-b from-pink-200 to-pink-500
+            pointer-events-none;
+    -webkit-mask-image: url('/images/image-404.png');
+    mask-image: url('/images/image-404.png');
+    mask-size: 70%;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    /* background-image: url('/images/image-404.png'); */
+
+}
+
+.default-size-container .title {
+    @apply text-2xl font-bold
+}
+.default-size-container .text-container {
+    @apply px-6 text-center;
+}

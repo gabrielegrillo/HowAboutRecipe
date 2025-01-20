@@ -13,12 +13,19 @@
       </div>
       <div class="login-area">
         @if(this.authService.isUserLoggedIn()) {
-          <a class="btn btn-default btn-purple-full" (click)="doLogOut()">
-            <p>LogOut</p>
-          </a>
+          <div class="auth-box">
+            <a routerLink="/dashboard" class="btn btn-default btn-purple-full">
+              <p>Account</p>
+              <i class="bx bxs-user bx-sm"></i>
+            </a>
+            <a class="btn btn-default btn-purple-full" (click)="doLogOut()">
+              <i class="bx bx-log-out bx-sm"></i>
+            </a>
+          </div>
+
         } @else {
           <a routerLink="/login" class="btn btn-default btn-purple-full">
-            <p>Accedi</p>
+            <p>Log In</p>
             <i class="bx bx-log-in-circle bx-sm"></i>
           </a>
         }

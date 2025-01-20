@@ -20,8 +20,8 @@ export interface UserLoginAuthInterface {
     "password": string
 }
 export interface UserRegisAuthInterface {
-    "firstName": string,
-    "lastName": string,
+    "first_name": string,
+    "last_name": string,
     "username": string,
     "email": string,
     "password": string
@@ -32,7 +32,14 @@ export interface UserAuth {
     "password": string
 }
 
-export interface UserToken {
+export interface UserToken extends UserLoggedInfo {
     "refresh": string,
     "access": string
+}
+
+export interface UserLoggedInfo {
+    "first_name": string,
+    "last_name": string,
+    "username": string,
+    "email": string
 }
