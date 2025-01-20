@@ -1,0 +1,150 @@
+{
+    "recipes": [
+        {
+            "id": "1",
+            
+            "title": "La Primissima Ricetta ad essere testata",
+            "description": "Questa e' la descrizione della ricetta",
+            
+            "preparation_time": 30,
+            "difficulty": 2,
+            
+            "steps": "Questo e' il passo 1 della ricetta, non e' fantastico./n./nOh Guarda, a quanto pare c'e' anche un passo 2, troppo bello",
+            
+            "is_public": "true",
+            "approved": "true",
+        
+            "tags": [
+                {
+                    "id": "tag-1",
+                    "name": "Vegetariano"
+                },
+                {
+                    "id": "tag-2",
+                    "name": "Giusto un Tag"
+                }
+            ],
+            "ingredients": [
+                {
+                    "ingredientDescription": {
+                        "id": "ing-1",
+                        "name": "Ingrediente necessario"
+                    },
+                    "quantity": "300",
+                    "unit": "g"
+                }
+            ],
+            "image": {
+                "id": "image-showcase-1.jpg",
+                "description": "Bellissima questa immagine, vero?"
+            },
+        
+            "ratings": 3,
+            "average_rating": 4.5
+        },
+        {
+            "id": "2",
+            
+            "title": "La Seconda Ricetta ad essere testata",
+            "description": "Questa e' la descrizione della ricetta",
+            
+            "preparation_time": 29,
+            "difficulty": 2,
+            
+            "steps": "Questo e' il passo 1 della ricetta, non e' fantastico./n./nOh Guarda, a quanto pare c'e' anche un passo 2, troppo bello./n./nMa perche' no, perche' non mettere anche un terzo, sarebbe ancora piu' bello, non credi?",
+            
+            "is_public": "true",
+            "approved": "true",
+        
+            "tags": [
+                {
+                    "id": "tag-2",
+                    "name": "Giusto un Tag"
+                }
+            ],
+            "ingredients": [
+                {
+                    "ingredientDescription": {
+                        "id": "ing-1",
+                        "name": "Ingrediente necessario"
+                    },
+                    "quantity": "300",
+                    "unit": "g"
+                }
+            ],
+            "image": {
+                "id": "image-showcase-2.jpg",
+                "description": "Bellissima questa immagine, vero?"
+            },
+        
+            "ratings": 3,
+            "average_rating": 4.5
+        },
+        {
+            "id": "3",
+            
+            "title": "La Terzissima Ricetta ad essere testata",
+            "description": "Questa e' la descrizione della ricetta, bella vero? Vosa dici? Troppo corta per te, ma ti sei visto la' sotto? Non credo",
+            
+            "preparation_time": 35,
+            "difficulty": 4,
+            
+            "steps": "Questo e' il passo 1 della ricetta, non e' fantastico./n./nOh Guarda, a quanto pare c'e' anche un passo 2, troppo bello",
+            
+            "is_public": "true",
+            "approved": "true",
+        
+            "tags": [
+                {
+                    "id": "tag-1",
+                    "name": "Vegetariano"
+                },
+                {
+                    "id": "tag-4",
+                    "name": "Miao Bellissimo"
+                },
+                {
+                    "id": "tag-2",
+                    "name": "Giusto un Tag"
+                },
+                {
+                    "id": "tag-3",
+                    "name": "Cat Approved"
+                }
+            ],
+            "ingredients": [
+                {
+                    "ingredientDescription": {
+                        "id": "ing-2",
+                        "name": "Ingrediente bello"
+                    },
+                    "quantity": "270",
+                    "unit": "g"
+                },
+                {
+                    "ingredientDescription": {
+                        "id": "ing-3",
+                        "name": "Ingrediente necessario"
+                    },
+                    "quantity": "300",
+                    "unit": "g"
+                },
+                {
+                    "ingredientDescription": {
+                        "id": "ing-1",
+                        "name": "Ingrediente necessario tantissimo"
+                    },
+                    "quantity": "200",
+                    "unit": "ml"
+                }
+            ],
+            "image": {
+                "id": "image-showcase-3.jpg",
+                "description": "Bellissima questa immagine, vero? Non mi interessa cosa pensi sinceramente :_)"
+            },
+        
+            "ratings": 3,
+            "average_rating": 4.5
+        }
+    ]
+}

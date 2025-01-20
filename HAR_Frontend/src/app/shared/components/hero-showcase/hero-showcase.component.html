@@ -1,0 +1,257 @@
+<!-- <div class="showcase-cards-container">
+    <div class="showcase-container showcase-swiper"> -->
+        <!-- 
+        @for (currRecipe of recipesData; track currRecipe.title; let i = $index) {
+            <div class="showcase-card">
+                <img [src]="currRecipe.imageCoverUrl" [alt]="currRecipe.title">
+                <div class="card-title">{{currRecipe.title}} - {{i}}</div>
+                <div class="card-author">{{currRecipe.author}}</div>
+            </div>
+        } 
+        -->
+        <!-- <article class="showcase-card showcase-card-big">
+            <a href="#" class="group" title="Card Title">
+                <div class="card-image default-card-image-style">
+                    <img class="transition-all ease-in-out group-hover:scale-110" src="/images/image-showcase-1.jpg" alt="Description of the Image">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title text-shadow-purple">Chi non vuole un po' di sushi?</h2>
+                    <ul class="card-data"></ul>
+                </div>
+                <div class="card-author">
+                    <span class="author-name">Bruno Caruso</span>
+                </div>
+            </a>
+        </article>
+            <article class="showcase-card showcase-card-small">
+                <a href="#" class="group" title="Card Title">
+                    <div class="card-image default-card-image-style">
+                        <img class="transition-all ease-in-out group-hover:scale-[1.1]" src="/images/image-showcase-2.jpg" alt="Just trying if it feels right">
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title text-shadow-purple">Chi non vuole un po' di sushi?</h2>
+                        <ul class="card-data"></ul>
+                    </div>
+                </a>
+            </article>
+            <article class="showcase-card showcase-card-small">
+                <a href="#" class="group" title="Card Title">
+                    <div class="card-image default-card-image-style">
+                        <img class="transition-all ease-in-out group-hover:scale-[1.1]" src="/images/image-showcase-3.jpg" alt="Just trying if it feels right">
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title text-shadow-purple">Chi non vuole un po' di sushi?</h2>
+                        <ul class="card-data"></ul>
+                    </div>
+                </a>
+            </article>
+    </div>
+</div> -->
+<section class="showcase">
+    <div class="default-size-container">
+        <div class="showcase-content">
+            <button #prevButton class="prev-card-button"><i class="bx bx-chevron-left bx-md"></i></button>
+            <button #nextButton class="next-card-button"><i class="bx bx-chevron-right bx-md"></i></button>
+            
+            <div #showcaseCarousel class="showcase-carousel">
+                @for(recipe of this.recipesData; track recipe) {
+                    <div class="card">
+                        <div class="card-image">
+                            <img [src]="getImagePath(recipe.title)" [alt]="recipe.title" [title]="recipe.title">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-info-container">
+                                <ul class="card-info text-shadow-red">
+                                    <li class="time">
+                                        <i class="bx bxs-time bx-sm rounded-full"></i>
+                                        <p>{{ getPreparationTimeAsString(recipe.preparation_time)}}</p>
+                                    </li>
+                                    <li class="difficulty">
+                                        <i class="bx bxs-food-menu bx-sm"></i>
+                                        <p>{{ getRecipeDifficultyAsString(recipe.difficulty) }}</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <ul class="tags-list">
+                                @for(tagItem of recipe.tags; track tagItem.id) {
+                                    <li class="tag">
+                                        <a [routerLink]="'/tags/' + tagItem.id" [title]="tagItem.name">{{ tagItem.name }}</a>
+                                    </li>
+                                }
+                            </ul>
+                            <div class="card-text-info">
+                                <h1 class="title">{{ recipe.title }}</h1>
+                                <p class="description">{{ recipe.description }}</p>
+                            </div>
+                            <div class="button-container">
+                                <a [routerLink]="'/recipes/' + recipe.id" [title]="recipe.title" class="see-more-button btn-purple-full group" >
+                                    <i class="bx bx-chevron-right bx-md group-hover:scale-150"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <!-- <div class="card">
+                    <div class="card-image">
+                        <img src="/images/image-showcase-2.jpg" alt="Just a Description">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-info-container">
+                            <ul class="card-info text-shadow-red">
+                                <li class="time">
+                                    <i class="bx bxs-time bx-md rounded-full"></i>
+                                    <p>30 min</p>
+                                </li>
+                                <li class="difficulty">
+                                    <i class="bx bxs-food-menu bx-md"></i>
+                                    <p>Easy</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="tags-list">
+                            <li class="tag">Tag1</li>
+                            <li class="tag">Tag2</li>
+                            <li class="tag">TagLungo3</li>
+                            <li class="tag">Tag4</li>
+                        </ul>
+                        <div class="card-text-info">
+                            <h1 class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, modi?</h1>
+                            <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos nostrum, repellat rerum cum maxime voluptates cumque adipisci aliquam praesentium id ipsam eius quo sunt saepe illum nemo, voluptatum sequi! Beatae eum quasi sint deserunt quas dolor mollitia assumenda a quibusdam molestiae, quae consequatur magnam est accusamus! Tenetur, sapiente? Repudiandae, libero?</p>
+                        </div>
+                        <div class="button-container">
+                            <button class="see-more-button btn-purple-full group" ><i class="bx bx-chevron-right bx-md group-hover:scale-150"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/images/image-showcase-1.jpg" alt="Just a Description">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-info-container">
+                            <ul class="card-info text-shadow-red">
+                                <li class="time">
+                                    <i class="bx bxs-time bx-md rounded-full"></i>
+                                    <p>30 min</p>
+                                </li>
+                                <li class="difficulty">
+                                    <i class="bx bxs-food-menu bx-md"></i>
+                                    <p>Easy</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="tags-list">
+                            <li class="tag">Tag1</li>
+                            <li class="tag">Tag2</li>
+                            <li class="tag">TagLungo3</li>
+                            <li class="tag">Tag4</li>
+                        </ul>
+                        <div class="card-text-info">
+                            <h1 class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, modi?</h1>
+                            <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos nostrum, repellat rerum cum maxime voluptates cumque adipisci aliquam praesentium id ipsam eius quo sunt saepe illum nemo, voluptatum sequi! Beatae eum quasi sint deserunt quas dolor mollitia assumenda a quibusdam molestiae, quae consequatur magnam est accusamus! Tenetur, sapiente? Repudiandae, libero?</p>
+                        </div>
+                        <div class="button-container">
+                            <button class="see-more-button btn-purple-full group" ><i class="bx bx-chevron-right bx-md group-hover:scale-150"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/images/image-showcase-3.jpg" alt="Just a Description">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-info-container">
+                            <ul class="card-info text-shadow-red">
+                                <li class="time">
+                                    <i class="bx bxs-time bx-md rounded-full"></i>
+                                    <p>30 min</p>
+                                </li>
+                                <li class="difficulty">
+                                    <i class="bx bxs-food-menu bx-md"></i>
+                                    <p>Easy</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="tags-list">
+                            <li class="tag">Tag1</li>
+                            <li class="tag">Tag2</li>
+                            <li class="tag">TagLungo3</li>
+                            <li class="tag">Tag4</li>
+                        </ul>
+                        <div class="card-text-info">
+                            <h1 class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, modi?</h1>
+                            <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos nostrum, repellat rerum cum maxime voluptates cumque adipisci aliquam praesentium id ipsam eius quo sunt saepe illum nemo, voluptatum sequi! Beatae eum quasi sint deserunt quas dolor mollitia assumenda a quibusdam molestiae, quae consequatur magnam est accusamus! Tenetur, sapiente? Repudiandae, libero?</p>
+                        </div>
+                        <div class="button-container">
+                            <button class="see-more-button btn-purple-full group" ><i class="bx bx-chevron-right bx-md group-hover:scale-150"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/images/image-showcase-4.jpg" alt="Just a Description">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-info-container">
+                            <ul class="card-info text-shadow-red">
+                                <li class="time">
+                                    <i class="bx bxs-time bx-md rounded-full"></i>
+                                    <p>30 min</p>
+                                </li>
+                                <li class="difficulty">
+                                    <i class="bx bxs-food-menu bx-md"></i>
+                                    <p>Easy</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="tags-list">
+                            <li class="tag">Tag1</li>
+                            <li class="tag">Tag2</li>
+                            <li class="tag">TagLungo3</li>
+                            <li class="tag">Tag4</li>
+                        </ul>
+                        <div class="card-text-info">
+                            <h1 class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, modi?</h1>
+                            <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos nostrum, repellat rerum cum maxime voluptates cumque adipisci aliquam praesentium id ipsam eius quo sunt saepe illum nemo, voluptatum sequi! Beatae eum quasi sint deserunt quas dolor mollitia assumenda a quibusdam molestiae, quae consequatur magnam est accusamus! Tenetur, sapiente? Repudiandae, libero?</p>
+                        </div>
+                        <div class="button-container">
+                            <button class="see-more-button btn-purple-full group" ><i class="bx bx-chevron-right bx-md group-hover:scale-150"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/images/image-showcase-2.jpg" alt="Just a Description">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-info-container">
+                            <ul class="card-info text-shadow-red">
+                                <li class="time">
+                                    <i class="bx bxs-time bx-md rounded-full"></i>
+                                    <p>30 min</p>
+                                </li>
+                                <li class="difficulty">
+                                    <i class="bx bxs-food-menu bx-md"></i>
+                                    <p>Easy</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="tags-list">
+                            <li class="tag">Tag1</li>
+                            <li class="tag">Tag2</li>
+                            <li class="tag">TagLungo3</li>
+                            <li class="tag">Tag4</li>
+                        </ul>
+                        <div class="card-text-info">
+                            <h1 class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, modi?</h1>
+                            <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos nostrum, repellat rerum cum maxime voluptates cumque adipisci aliquam praesentium id ipsam eius quo sunt saepe illum nemo, voluptatum sequi! Beatae eum quasi sint deserunt quas dolor mollitia assumenda a quibusdam molestiae, quae consequatur magnam est accusamus! Tenetur, sapiente? Repudiandae, libero?</p>
+                        </div>
+                        <div class="button-container">
+                            <button class="see-more-button btn-purple-full group" ><i class="bx bx-chevron-right bx-md group-hover:scale-150"></i></button>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</section>

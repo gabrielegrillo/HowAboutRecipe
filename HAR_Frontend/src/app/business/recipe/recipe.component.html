@@ -1,0 +1,71 @@
+<main class="main-container">
+
+    <app-header />
+
+    <section class="presentation-section">
+        <div class="default-size-container">
+            <div class="presentation-container">
+                <div class="image-container">
+                    <div class="image-box">
+                        <img [src]="getImagePath(recipeShown.title)" [alt]="recipeShown.title" [title]="recipeShown.title">
+                    </div>
+                </div>
+                <div class="recipe-intro-content">
+                    <div class="recipe-info-container">
+                        <ul class="recipe-info text-shadow-red">
+                            <li class="time">
+                                <i class="bx bxs-time bx-sm rounded-full"></i>
+                                <p>{{ getPreparationTimeAsString(recipeShown.preparation_time)}}</p>
+                            </li>
+                            <li class="difficulty">
+                                <i class="bx bxs-food-menu bx-sm"></i>
+                                <p>{{ getRecipeDifficultyAsString(recipeShown.difficulty) }}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="tags-list">
+                        @for(tagItem of recipeShown.tags; track tagItem.id) {
+                            <li class="tag">
+                                <a [routerLink]="'/tags/' + tagItem.id" [title]="tagItem.name">{{ tagItem.name }}</a>
+                            </li>
+                        }
+                    </ul>
+                    <div class="recipe-text-info">
+                        <h1 class="title">{{ recipeShown.title }}</h1>
+                        <p class="description"> {{ recipeShown.description }}</p> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="recipe-content-section">
+        <div class="default-size-container">
+            <div class="box-container">
+                <div class="ingredients-container">
+                    <div class="ingredients-head">
+                        <h3 class="title">Ingredients</h3>
+                    </div>
+                    <div class="ingredients-list">
+                        @for(ing of recipeShown.ingredients; track ing) {
+                            <div class="ingredient">
+                                <a [routerLink]="'/tags/' + ing.ingredient.id" [title]="ing.ingredient.name">{{ ing.ingredient.name }}</a>
+                                <span>{{ ing.quantity }} {{ ing.unit }}</span>
+                            </div>
+                        }
+                    </div>   
+                </div>
+                <div class="steps-container">
+                    @for(step of getStepsAsArray(recipeShown.steps); track step) {
+                        <div class="step">
+                            <span class="step-number text-shadow-purple">{{ $index + 1 }}</span>
+                            <p>{{ step }}</p>
+                        </div>  
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <app-footer />
+</main>

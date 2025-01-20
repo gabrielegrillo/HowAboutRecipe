@@ -1,0 +1,30 @@
+<div class="nav-container">
+  <div class="default-size-container">
+    <nav class="nav-bar default-size-container">
+      <div class="menu-area">
+        <a routerLink="/home" class="btn">
+          <div class="logo-image"></div>
+          <h2 class="logo-title">HowAboutRecipes</h2>
+        </a>
+      </div>
+      <div class="search-box">
+        <input class="search-field" placeholder="Search here..." type="text">
+        <i class="bx bx-search bx-sm"></i>
+      </div>
+      <div class="login-area">
+        @if(this.authService.isUserLoggedIn()) {
+          <a class="btn btn-default btn-purple-full" (click)="doLogOut()">
+            <p>LogOut</p>
+          </a>
+        } @else {
+          <a routerLink="/login" class="btn btn-default btn-purple-full">
+            <p>Accedi</p>
+            <i class="bx bx-log-in-circle bx-sm"></i>
+          </a>
+        }
+      </div>
+    </nav>
+  </div>
+</div>
+
+

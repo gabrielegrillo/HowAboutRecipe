@@ -1,0 +1,32 @@
+.nav-container { 
+  @apply  border border-x-0 border-t-0 border-purple-700 border-opacity-30
+          bg-white text-black; 
+}
+
+.nav-bar {
+  @apply  min-h-16 py-3
+          flex flex-row justify-between items-center;
+}
+
+/* ---- Logo & Menu Area ---- */
+.menu-area { @apply flex items-center space-x-2 justify-center; }
+.menu-area .btn { @apply flex space-x-2; }
+.menu-area .logo-image { @apply inline-block w-[30px] h-[30px]; }
+.menu-area .logo-title { @apply text-xl font-bold; }
+
+/* ---- Search Area ---- */
+.search-box {
+  @apply  w-[60%] h-auto px-4
+          border-b-2 border-b-purple-700
+          flex flex-row justify-center items-center;
+}
+.search-box .search-field {
+  @apply  w-full p-1
+          bg-transparent outline-0 text-black
+          /* --- Placeholder --- */
+          placeholder:opacity-25 placeholder:text-black placeholder:font-bold placeholder:italic;
+}
+.search-box i { @apply text-purple-700; }
+
+/* ---- Log In Area ---- */
+.login-area { @apply flex items-center text-base text-white; }

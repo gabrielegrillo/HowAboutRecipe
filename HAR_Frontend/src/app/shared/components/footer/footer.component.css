@@ -1,0 +1,5 @@
+.footer-container { 
+    @apply  border border-x-0 border-b-0 border-purple-900 border-opacity-30
+            bg-white text-black; 
+}
+.footer-container p { @apply p-3 text-gray-400 text-center; }

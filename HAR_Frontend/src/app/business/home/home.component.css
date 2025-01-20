@@ -1,0 +1,8 @@
+
+.categories-list {
+    @apply  w-full h-12 px-12
+            flex justify-start items-center
+}
+.categories-list > ul { @apply  flex flex-row justify-center space-x-5 text-lg font-semibold }
+
+.category-section { @apply mt-20 mb-10 }

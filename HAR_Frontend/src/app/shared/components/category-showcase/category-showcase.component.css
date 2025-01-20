@@ -1,0 +1,174 @@
+.category-showcase { @apply my-10; }
+
+/* --- Category Title --- */
+
+.category-showcase .category-title {
+    @apply  w-full h-full mt-2 mb-4 pb-2 relative
+            /* ---- Before: Line Underneath ---- */
+            before:block before:h-1 before:w-40 
+            before:absolute before:bottom-0 before:left-0
+            before:rounded-full before:bg-purple-800
+    ;
+}
+.category-showcase .category-title .title  { 
+    @apply text-3xl font-bold; 
+}
+
+
+/* --- Card Gallery --- */
+
+.category-showcase .cards-container {
+    @apply  w-min max-w-full h-auto p-1 pb-4 overflow-x-auto
+            grid grid-flow-col gap-6;
+}
+
+/* --- Scrollbar --- */
+.category-showcase .cards-container::-webkit-scrollbar { @apply w-2 h-2; }
+.category-showcase .cards-container::-webkit-scrollbar-track { @apply bg-transparent; }
+.category-showcase .cards-container::-webkit-scrollbar-thumb,
+.category-showcase .cards-container::-webkit-scrollbar-thumb:hover { @apply bg-transparent rounded-xl; }
+
+
+/* ---- Card ---- */
+.category-showcase .cards-container .card {
+    @apply  w-96 h-[26.5rem] p-3 overflow-hidden relative 
+            rounded-2xl
+            flex flex-col
+            /* ---- After: Card MicroPrint Default Size & Position ---- */
+            after:block after:w-[150%] after:h-[150%]
+            after:absolute after:top-0 after:right-0 after:pointer-events-none;
+}
+.category-showcase .cards-container .card::after {
+    background-image: url('/images/wavy-background-blackish.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    opacity: 7.5%;
+}
+
+/* ---- Card: Image ---- */
+.category-showcase .cards-container .card .card-image {
+    @apply  w-full h-52 z-10 
+            relative overflow-hidden
+            border-none rounded-xl 
+            flex justify-center items-center
+            transition-all ease-in-out
+            /* ---- Before: Inset Shadow on Image ---- */
+            before:block before:w-full before:h-full
+            before:absolute before:top-0 before:left-0
+            before:bg-transparent before:rounded-xl 
+            before:shadow-[inset_0px_5px_15px_-3px_rgba(0,_0,_0,_0.35)]
+            /* ---- After: Info-Box Shadow on Image ---- */
+            after:block after:w-[5.75rem] after:h-20
+            after:absolute after:top-[8.5rem] after:right-0
+            after:bg-transparent after:rounded-xl 
+            after:shadow-[0px_-5px_15px_3px_rgba(0,_0,_0,_0.35)];
+}
+.category-showcase .cards-container .card .card-image img {
+    @apply w-full h-full object-cover;
+}
+
+/* ---- Card: Small Info ---- */
+.category-showcase .cards-container .card .card-info {
+    @apply  space-y-3 z-20 
+            border-[0.75rem] rounded-tl-2xl rounded-bl-2xl
+            absolute right-0 top-36 
+            text-white font-bold
+            /* ---- Before: Rounding on Top of the List ---- */
+            before:block before:w-6 before:h-6 
+            before:absolute before:-top-9 before:right-0
+            before:bg-transparent before:rounded-full
+            /* ---- After: Rounding on Left of the List ---- */
+            after:block after:w-6 after:h-6 
+            after:absolute after:-left-9 after:top-10
+            after:bg-transparent after:rounded-full;
+}
+
+.category-showcase .cards-container .card .card-info li {
+    @apply  w-20 h-auto py-2
+            rounded-lg bg-gradient-to-br
+            flex flex-col justify-center items-center
+            text-sm;
+}
+.category-showcase .cards-container .card .card-info li i {
+    @apply  w-min h-min -mt-4 mb-1 
+            transition-all ease-in-out;
+}
+
+/* ---- Card: Content ---- */
+.category-showcase .cards-container .card .card-content {
+    @apply  max-w-[75%];
+}
+
+.category-showcase .cards-container .card .card-content .title {
+    @apply font-bold text-2xl line-clamp-2 text-ellipsis mb-2;
+}
+.category-showcase .cards-container .card .card-content .description {
+    @apply opacity-70 text-sm line-clamp-2 text-ellipsis;
+}
+
+/* ---- Card: Tag List ---- */
+.category-showcase .cards-container .card .card-content .tags-list {
+    @apply  mt-2 mb-1 relative overflow-x-scroll
+            rounded-md 
+            flex flex-row space-x-2 flex-nowrap 
+            text-white text-xs uppercase;
+}
+.category-showcase .cards-container .card .card-content .tags-list::-webkit-scrollbar { @apply w-2 h-2; }
+.category-showcase .cards-container .card .card-content .tags-list::-webkit-scrollbar-track { @apply bg-transparent; }
+.category-showcase .cards-container .card .card-content .tags-list::-webkit-scrollbar-thumb,
+.category-showcase .cards-container .card .card-content .tags-list::-webkit-scrollbar-thumb:hover { @apply bg-transparent rounded-xl; }
+
+.category-showcase .cards-container .card .card-content .tags-list .tag {
+    @apply  h-min py-1 px-2 whitespace-nowrap
+            rounded-md bg-purple-700;
+}
+
+/* ---- Card: Button ---- */
+.category-showcase .cards-container .card .button-container {
+    @apply  absolute bottom-0 right-0 
+            border-[0.75rem] rounded-br-2xl rounded-tl-2xl 
+            flex justify-center items-center;
+}
+.category-showcase .cards-container .card .button-container .see-more-button {
+    @apply  w-20 h-auto px-2 py-1 z-10
+            rounded-lg 
+            flex justify-center
+            text-white font-bold;
+}
+.category-showcase .cards-container .card .button-container .see-more-button i {
+    @apply transition-all ease-out;
+}
+
+/* ---- Alternative Colors ---- */
+
+.category-showcase .cards-container .card-blue { @apply bg-blue-200; }
+.category-showcase .cards-container .card-blue .card-info { @apply border-blue-200 bg-blue-200 before:shadow-[9px_9px_0px_-3px_rgb(191,_219,_254)] after:shadow-[9px_9px_0px_-3px_rgb(191,_219,_254)]; text-shadow: 2px 2px 6px #BE123E; }
+.category-showcase .cards-container .card-blue .card-info li { @apply from-pink-300 to-pink-400; }
+.category-showcase .cards-container .card-blue .card-info li i { @apply bg-pink-300; }
+.category-showcase .cards-container .card-blue .button-container { @apply border-blue-200 bg-blue-200; }
+
+.category-showcase .cards-container .card-blue::after {
+    /* ---- Code By: https://codepen.io/sosuke/pen/Pjoqqp ---- */
+    filter: invert(27%) sepia(88%) saturate(1642%) hue-rotate(209deg) brightness(100%) contrast(98%);
+}
+
+/* ------ */
+.category-showcase .cards-container .card-pink { @apply bg-pink-200; }
+.category-showcase .cards-container .card-pink .card-info { @apply  border-pink-200 bg-pink-200 before:shadow-[9px_9px_0px_-3px_rgb(251,_207,_232)] after:shadow-[9px_9px_0px_-3px_rgb(251,_207,_232)]; text-shadow: 2px 2px 6px #1E40AF; }
+.category-showcase .cards-container .card-pink .card-info li { @apply from-blue-400 to-blue-600; }
+.category-showcase .cards-container .card-pink .card-info li i { @apply bg-blue-400; }
+.category-showcase .cards-container .card-pink .button-container { @apply border-pink-200 bg-pink-200; }
+
+.category-showcase .cards-container .card-pink::after {
+    /* ---- Code By: https://codepen.io/sosuke/pen/Pjoqqp ---- */
+    filter: invert(17%) sepia(99%) saturate(5296%) hue-rotate(272deg) brightness(84%) contrast(92%);
+}
+
+/* ------ */
+.category-showcase .cards-container .card-white { @apply bg-white; box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.3); }
+.category-showcase .cards-container .card-white .card-info { @apply  border-white bg-white before:shadow-[9px_9px_0px_-3px_rgb(255,_255,_255)] after:shadow-[9px_9px_0px_-3px_rgb(255,_255,_255)]; text-shadow: 2px 2px 6px #BE123E; }
+.category-showcase .cards-container .card-white .card-info li { @apply from-pink-300 to-pink-400; }
+.category-showcase .cards-container .card-white .card-info li i { @apply bg-pink-300; }
+.category-showcase .cards-container .card-white .button-container { @apply border-white bg-white; }

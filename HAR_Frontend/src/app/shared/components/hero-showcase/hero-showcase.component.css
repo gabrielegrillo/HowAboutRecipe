@@ -1,0 +1,146 @@
+/* ---- Container ---- */
+.showcase {
+    @apply  w-full my-3
+            flex justify-center items-center;
+}
+
+.default-size-container { @apply flex justify-center; }
+
+.showcase .showcase-content {
+    @apply  w-full h-[600px] relative overflow-x-hidden
+            flex justify-center items-center;
+}
+
+.showcase .showcase-carousel {
+    @apply  w-full h-[520px];
+}
+.showcase .showcase-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+/* ---- Slider Buttons ---- */
+.showcase .next-card-button, .showcase .prev-card-button {
+    @apply  w-10 h-10 p-2 absolute z-50
+            bottom-0 translate-y-[-50%]
+            rounded-full bg-blue-600
+            flex justify-center items-center
+            text-white
+            transition-all ease-in-out
+            /* ---- Hover State ---- */
+            hover:scale-125 hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-700;     
+}
+.showcase .prev-card-button { @apply -translate-x-9; }
+.showcase .next-card-button { @apply translate-x-9; }
+
+/* ---- Card ---- */
+.showcase .showcase-carousel .card {
+    @apply  w-[1200px] max-w-full h-[520px] p-3 absolute
+            rounded-[3rem] bg-blue-200 
+            grid grid-rows-1 grid-cols-2 gap-6
+            transition-all ease-in-out duration-500
+            /* ---- After: Card MicroPrint Default Size & Position ---- */
+            after:block after:w-3/4 after:h-full
+            after:absolute after:top-0 after:right-0;
+}
+.showcase .showcase-carousel .card:nth-child(1) { left: calc(50% + 1200px * (-2) + 30px * (-2)); opacity: 0; height: 400px; }
+.showcase .showcase-carousel .card:nth-child(2) { left: calc(50% + 1200px * (-1) + 30px * (-1)); opacity: 0.75; height: 400px;  }
+.showcase .showcase-carousel .card:nth-child(3) { left: calc(50%); opacity: 1; }
+.showcase .showcase-carousel .card:nth-child(4) { left: calc(50% + 1200px * (1) + 30px * (1)); opacity: 0.75; height: 400px; }
+.showcase .showcase-carousel .card:nth-child(5) { left: calc(50% + 1200px * (2) + 30px * (2));  opacity: 0; height: 400px;  }
+.showcase .showcase-carousel .card { top: 50%; transform: translate(-50%, -50%); }
+
+.showcase .showcase-carousel .card::after {
+    background-image: url('/images/wavy-background-blackish.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    /* ---- Code By: https://codepen.io/sosuke/pen/Pjoqqp ---- */
+    filter: invert(27%) sepia(88%) saturate(1642%) hue-rotate(209deg) brightness(100%) contrast(98%);
+    opacity: 7.5%;
+}
+
+/* ---- Card: Image ---- */
+.showcase .showcase-carousel .card .card-image {
+    @apply  w-full h-full overflow-hidden z-20
+            rounded-[2.5rem];
+}
+.showcase .showcase-carousel .card .card-image img {
+    @apply  w-full h-full object-cover;
+}
+
+/* ---- Card: Small Info ---- */
+.showcase .showcase-carousel .card .card-info-container {
+    @apply  w-full h-full z-30
+            absolute top-0 -left-6
+            flex justify-center items-center;
+}
+.showcase .showcase-carousel .card .card-info-container .card-info {
+    @apply  space-y-3 z-10 relative mr-3
+            border-[0.75rem] border-r-0 rounded-[2rem] border-blue-200 bg-blue-200 
+            text-white font-bold
+            /* ---- Before: Rounding on Top of the List ---- */
+            before:block before:w-6 before:h-6 
+            before:absolute before:-top-9 before:left-9
+            before:rounded-full before:bg-transparent
+            before:shadow-[9px_9px_0px_-3px_rgb(191,219,254)]
+            /* ---- After: Rounding on Left of the List ---- */
+            after:block after:w-6 after:h-6 
+            after:absolute after:-bottom-9 after:left-9
+            after:rounded-full after:bg-transparent 
+            after:shadow-[9px_-9px_0px_-3px_rgb(191,219,254)];
+}
+
+.showcase .showcase-carousel .card .card-content .card-info-container .card-info li {
+    @apply  w-24 h-24 py-5
+            rounded-3xl bg-gradient-to-br from-pink-300 to-pink-400
+            flex flex-col justify-center items-center
+            text-sm;
+}
+.showcase .showcase-carousel .card .card-content .card-info-container .card-info li i {
+    @apply  mb-2
+            transition-all ease-in-out;
+}
+
+/* ---- Card: Content ---- */
+.showcase .showcase-carousel .card .card-content {
+    @apply  w-auto pl-12 pt-9 z-30
+            rounded-2xl 
+            flex flex-col justify-between items-start;
+}
+
+/* ---- Card: Tag List ---- */
+.showcase .showcase-carousel .card .card-content .tags-list {
+    @apply  w-full h-auto p-2 relative
+            rounded-md overflow-hidden
+            flex flex-row items-center space-x-2 flex-wrap
+            text-white text-xs uppercase;
+}
+.showcase .showcase-carousel .card .card-content .tags-list .tag {
+    @apply  w-min h-auto py-1 px-2 
+            rounded-md bg-purple-700;
+}
+
+/* ---- Card: Text ---- */
+.showcase .showcase-carousel .card .card-content .card-text-info {
+    @apply pr-20 z-30;
+}
+.showcase .showcase-carousel .card .card-content .card-text-info .title {
+    @apply font-bold text-4xl mb-6;
+}
+.showcase .showcase-carousel .card .card-content .card-text-info .description {
+    @apply opacity-70 text-sm line-clamp-4 text-ellipsis;
+}
+
+/* ---- Card: Button ---- */
+.showcase .showcase-carousel .card .card-content .button-container {
+    @apply  w-full h-auto pr-6 pb-6 z-50
+            flex justify-end items-center;
+}
+.showcase .showcase-carousel .card .card-content .button-container .see-more-button {
+    @apply  w-40 h-auto px-2 py-1 
+            rounded-lg rounded-br-3xl rounded-tl-3xl
+            text-white font-bold text-center;
+}
+.showcase .showcase-carousel .card .card-content .button-container .see-more-button i {
+    @apply transition-all ease-out;
+}

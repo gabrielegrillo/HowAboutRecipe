@@ -1,0 +1,101 @@
+<main #mainContainer class="main-container">
+    <div #boxContainer class="box-container">
+        <div class="form-box sign-in-form">
+            <form [formGroup]="form_signIn" #signInForm action="" autocomplete="off" (ngSubmit)="onSignIn()">
+                <div class="heading">
+                    <h2 class="title">Welcome Back</h2>
+                </div>
+
+                <div class="actual-form">
+                    <div class="input-wrap">
+                        <input type="text" placeholder="" minlength="4" autocomplete="off" class="input-field peer" id="singIn_username" formControlName="username" required/>
+                        <label for="singIn_username" class="label-for-input-field text-xs peer-focus:text-xs peer-focus:top-0 peer-placeholder-shown:top-[50%] peer-placeholder-shown:text-base">
+                            Username
+                        </label>
+                    </div> 
+                    <div class="input-wrap">
+                        <input type="password" placeholder="" minlength="4" autocomplete="off" class="input-field peer" id="singIn_password" formControlName="password" required>
+                        <label for="singIn_password" class="label-for-input-field text-xs peer-focus:text-xs peer-focus:top-0 peer-placeholder-shown:top-[50%] peer-placeholder-shown:text-base">
+                            Password
+                        </label>
+                    </div>
+
+                    <input type="submit" value="Sign In" class="btn btn-purple-full sign-btn">
+                </div>
+
+                <p class="text">
+                    Forgotten your Password or your login details?
+                    <a href="#" class="">Get Help</a> signing in
+                </p>
+            </form>
+        </div>
+
+        <div class="form-box sign-up-form">
+            <form [formGroup]="form_signUp" #signUpForm action="" autocomplete="off" (ngSubmit)="onSignUp()">
+                <div class="heading">
+                    <h2 class="title">Get Started</h2>
+                </div>
+
+                <div class="actual-form">
+                    <div class="input-wrap">
+                        <input type="text" placeholder="" minlength="4" autocomplete="off" class="input-field peer" id="singUp_firstName" formControlName="first_name" required/>
+                        <label for="singUp_firstName" class="label-for-input-field text-xs peer-focus:text-xs peer-focus:top-0 peer-placeholder-shown:top-[50%] peer-placeholder-shown:text-base">
+                            Name
+                        </label>
+                    </div>
+                    <div class="input-wrap">
+                        <input type="text" placeholder="" minlength="4" autocomplete="off" class="input-field peer" id="singUp_lastName" formControlName="last_name" required/>
+                        <label for="singUp_lastName" class="label-for-input-field text-xs peer-focus:text-xs peer-focus:top-0 peer-placeholder-shown:top-[50%] peer-placeholder-shown:text-base">
+                            Surname
+                        </label>
+                    </div> 
+                    <div class="input-wrap">
+                        <input type="text" placeholder="" minlength="4" autocomplete="off" class="input-field peer" id="singUp_username" formControlName="username" required/>
+                        <label for="singUp_username" class="label-for-input-field text-xs peer-focus:text-xs peer-focus:top-0 peer-placeholder-shown:top-[50%] peer-placeholder-shown:text-base">
+                            Username
+                        </label>
+                    </div> 
+                    <div class="input-wrap">
+                        <input type="email" placeholder="" minlength="4" autocomplete="off" class="input-field peer" id="singUp_email" formControlName="email" required/>
+                        <label for="singUp_email" class="label-for-input-field text-xs peer-focus:text-xs peer-focus:top-0 peer-placeholder-shown:top-[50%] peer-placeholder-shown:text-base">
+                            E-mail Address
+                        </label>
+                    </div> 
+
+                    <div class="input-wrap">
+                        <input type="password" placeholder="" minlength="4" autocomplete="off" class="input-field peer" id="singUp_password" formControlName="password" required>
+                        <label for="singUp_password" class="label-for-input-field text-xs peer-focus:text-xs peer-focus:top-0 peer-placeholder-shown:top-[50%] peer-placeholder-shown:text-base">
+                            Password
+                        </label>
+                    </div>
+
+                    <input type="submit" value="Sign Up" class="btn btn-purple-full sign-btn">
+                </div>
+
+                <p class="text">
+                    By signing up I agree to the 
+                    <a href="#" class="">Terms of Services</a> and 
+                    <a href="#" class="">Privacy Policy</a>
+                </p>
+            </form>
+        </div>
+
+        <div class="logo-box">
+            <a routerLink="/home" class="logo-image"></a>
+        </div>
+        <div class="toggle-box">
+            <div class="toggle-panel toggle-left">
+                <h2 class="title">Non hai ancora un account?</h2>
+                <h6 class="sub-title">Allora perché non ti registri!</h6>
+
+                <button #leftToggleButton class="btn toggle sign-up-toggle">Sign up</button>
+            </div>
+            <div class="toggle-panel toggle-right">
+                <h2 class="title">Hai già un account?</h2>
+                <h6 class="sub-title">Effettua il login</h6>
+
+                <button #rightToggleButton class="btn toggle sign-in-toggle">Sign In</button>
+            </div>
+        </div>
+    </div>
+</main>

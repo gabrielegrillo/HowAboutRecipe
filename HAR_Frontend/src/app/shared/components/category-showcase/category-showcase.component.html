@@ -1,0 +1,44 @@
+
+<section class="category-showcase">
+    <div class="default-size-container">
+        <div class="category-title">
+            <h2 class="title">{{ categoryTitle }}</h2>
+        </div>
+
+        <div class="cards-container">
+            @for(recipe of this.recipesToShow; track recipe) {
+                <article [class]="'card ' + this.cardStyle">
+                        <div class="card-image">
+                            <img [src]="getImagePath(recipe.title)" [alt]="recipe.title" [title]="recipe.title">
+                        </div>
+                        <ul class="card-info">
+                            <li class="time">
+                                <i class="bx bxs-time bx-sm rounded-full"></i>
+                                <p>{{ getPreparationTimeAsString(recipe.preparation_time)}}</p>
+                            </li>
+                            <li class="difficulty">
+                                <i class="bx bxs-food-menu bx-sm"></i>
+                                <p>{{ getRecipeDifficultyAsString(recipe.difficulty) }}</p>
+                            </li>
+                        </ul>
+                        <div class="card-content">
+                            <ul class="tags-list">
+                                @for(tagItem of recipe.tags; track tagItem.id) {
+                                    <li class="tag">
+                                        <a [routerLink]="'/tags/' + tagItem.id" [title]="tagItem.name">{{ tagItem.name }}</a>
+                                    </li>
+                                }
+                            </ul>
+                            <h1 class="title">{{ recipe.title }}</h1>
+                            <p class="description">{{ recipe.description }}</p>
+                        </div>
+                        <div class="button-container">
+                            <a [routerLink]="'/recipes/' + recipe.id" [title]="recipe.title" class="see-more-button btn-purple-full group text-shadow-purple">
+                                <i class="bx bx-chevron-right bx-md group-hover:scale-150"></i>
+                            </a>
+                        </div>
+                </article>
+            }
+        </div> 
+    </div>
+</section>   

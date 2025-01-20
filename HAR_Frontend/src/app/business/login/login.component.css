@@ -1,0 +1,276 @@
+/* 
+.main-container {
+    @apply  p-8
+            bg-blue-200
+            flex justify-center items-center;
+}
+
+/* ---- Box Content ---- *
+.box {
+    @apply  w-full max-w-[1020px] h-[640px] relative
+            rounded-[3rem] bg-white
+            shadow-[0px_30px_40px_-30px_rgba(0,0,0,0.3)];
+}
+.box .inner-box {
+    @apply  w-[calc(100%_-_3rem)] h-[calc(100%_-_3rem)] absolute
+            top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%];
+}
+
+.forms-wrap {
+    @apply  w-[45%] h-full absolute
+            top-0 left-0
+            grid grid-rows-1 grid-cols-1;
+        transition: 0.8s ease-in-out;
+}
+.overlay {
+    @apply  w-[55%] h-full absolute
+            top-0 left-[45%] 
+            rounded-[2.5rem] bg-blue-200;
+            transition: 0.8s ease-in-out;
+            background-blend-mode: screen;
+}
+
+.overlay .inner-overlay {
+        @apply  w-full h-full absolute
+                top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]
+                flex flex-col justify-center items-center;
+    }
+
+.overlay .logo-image { @apply  w-20 h-20 mb-10; }
+
+.overlay .heading { @apply w-full h-14 mb-10 overflow-y-hidden text-center; }
+.overlay .heading .title { @apply text-2xl font-bold text-gray-900; }
+.overlay .heading .sub-title { @apply inline mr-1 text-base font-light; }
+.overlay .btn.toggle { 
+    @apply  w-32 py-3
+            rounded-lg border-2 border-white
+            text-center text-base font-semibold text-white no-underline
+            transition-all duration-300
+            hover:text-purple-700 hover:border-purple-700 hover:scale-110; 
+}
+.overlay .heading .to-sign-up-heading,
+.overlay .heading .to-sign-in-heading
+{ @apply translate-y-0;  transition: 0.8s ease-in-out; }
+
+.overlay .heading .to-sign-up-heading { @apply mb-[4.5rem]; }
+
+
+
+.main-container.sign-up-mode .forms-wrap { @apply left-[55%]; }
+.main-container.sign-up-mode form.sign-up-form { @apply opacity-100 pointer-events-auto; }
+.main-container.sign-up-mode form.sign-in-form { @apply opacity-0 -z-10; }
+.main-container.sign-up-mode .overlay { @apply left-0; }
+
+.main-container.sign-up-mode .overlay .heading .to-sign-up-heading,
+.main-container.sign-up-mode .overlay .heading .to-sign-in-heading
+{ @apply -translate-y-32; }
+
+
+
+/* ---- Form Style ---- *
+
+form {
+    @apply  w-full h-full max-w-[260px] my-0 mx-auto
+            flex flex-col justify-evenly
+            row-start-1 row-end-2 col-start-1 col-end-2
+            transition-all ease-in-out duration-500;
+            transition: opacity 0.02s 0.4s;
+}
+form.sign-up-form { @apply opacity-0 pointer-events-none; }
+
+form .heading .title { @apply text-3xl font-bold text-gray-900 text-center; }
+/*.input-wrap { @apply w-[90%] relative; }
+ .input-wrap .input-field {
+    @apply  block w-full p-3 my-2 m-0
+            rounded-md bg-white border border-gray-300 focus:border-black focus:outline-none
+            text-base placeholder-gray-400; 
+}
+.input-wrap .label-for-input-field {
+    @apply  py-0 px-2 absolute bg-white
+            translate-y-[-50%] transition-all ease-in-out
+            pointer-events-none;
+} *
+.input-wrap { @apply    h-10 mb-5 relative; }
+.input-wrap .input-field {
+    @apply  w-full h-full p-0 m-0 absolute
+            bg-transparent outline-none border-b border-b-gray-700; 
+}
+.input-wrap .label-for-input-field {
+    @apply  absolute bg-transparent text-gray-400
+            translate-y-[-50%] transition-all ease-in-out duration-300
+            pointer-events-none;
+}
+
+.sign-btn { 
+    @apply  w-full h-12 mb-8
+            rounded-md
+            text-base hover:font-bold hover:tracking-wider
+            transition-all ease-in-out duration-300; 
+}
+
+.text { @apply  text-gray-400 text-xs; }
+.text a {
+    @apply  transition-all duration-300
+            hover:text-purple-300;
+} */
+
+
+.main-container { 
+        @apply  min-h-screen 
+                bg-gradient-to-br from-blue-200 to-blue-500 
+                flex justify-center items-center
+                
+                before:block before:w-full before:h-full before:absolute before:top-0 before:left-0; 
+}
+.main-container::before {
+        background-image: url('/images/wavy-background-blackish.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    
+        /* ---- Code By: https://codepen.io/sosuke/pen/Pjoqqp ---- */
+        filter: invert(27%) sepia(88%) saturate(1642%) hue-rotate(209deg) brightness(100%) contrast(98%);
+        opacity: 10%;
+}
+
+.main-container .box-container { 
+        @apply w-[850px] h-[550px] relative overflow-hidden
+                rounded-3xl bg-white 
+                shadow-[0px_30px_40px_-30px_rgba(0,0,0,0.3)]; 
+}
+
+.box-container .form-box {
+        @apply  w-1/2 h-full px-3 absolute z-10
+                right-0
+                flex items-center justify-center;
+        transition:0.6s ease-in-out 1.2s, visibility 0s 1s;
+}
+.box-container .form-box.sign-up-form { visibility: hidden; }
+.box-container .form-box.sign-in-form { visibility: visible; }
+
+
+.box-container form {
+        @apply w-full flex flex-col justify-center items-center;
+}
+.box-container .actual-form { @apply w-[80%] mb-5 mt-8; }
+.box-container form .heading .title { @apply text-3xl font-bold text-gray-900; }
+
+.box-container .sign-up-form form .heading .title { @apply -mb-3; }
+
+.box-container form .input-wrap { @apply w-full h-10 mb-5 relative; }
+.box-container form .input-wrap .input-field {
+        @apply  w-full h-full p-0 m-0 
+                absolute left-0
+                bg-transparent outline-none border-b border-b-gray-700; 
+}
+.box-container form .input-wrap .label-for-input-field {
+        @apply  absolute 
+                bg-transparent text-gray-400
+                translate-y-[-50%] transition-all ease-in-out duration-300
+                pointer-events-none;
+}
+
+.box-container form .sign-btn { 
+        @apply  w-full h-12 my-8 
+                rounded-md
+                text-base hover:font-bold hover:tracking-wider
+                transition-all ease-in-out duration-300; 
+}
+    
+.box-container .text { @apply px-12 text-gray-400 text-xs; }
+.box-container .text a {
+        @apply  transition-all duration-300
+                hover:text-purple-300;
+}
+    
+.toggle-box { 
+        @apply  absolute w-full h-full overflow-hidden
+                /* ---- Before: Graident Toggle Overlay ---- */
+                before:block before:w-[300%] before:h-[calc(100%_-_2rem)] before:z-20 
+                before:absolute before:top-1/2 before:left-[-250%] before:-translate-y-1/2
+                before:rounded-2xl before:bg-gradient-to-l before:from-blue-400 before:to-pink-400
+                before:[transition:1.8s_ease-in-out]
+                /* ---- After: White Border Overlay ---- */
+                after:block after:w-[calc(100%_+_2rem)] after:h-[calc(100%_+_2rem)] after:z-50 
+                after:absolute after:-top-4 after:-left-4
+                after:rounded-[3rem] after:border-[2rem] after:border-white 
+                after:pointer-events-none; 
+
+}
+
+.toggle-box .toggle-panel { 
+        @apply  w-1/2 h-full z-20 absolute 
+                flex flex-col justify-center items-center
+                text-white; 
+        transition: 0.6s ease-in-out;
+}
+.toggle-box .toggle-panel.toggle-left { @apply left-0; transition-delay: 1.2s; }
+.toggle-box .toggle-panel.toggle-right { @apply -right-1/2; transition-delay: .6s; }
+
+.toggle-box .logo-image { @apply  w-20 h-20 mb-10; }
+
+.toggle-box .title { @apply text-2xl font-bold; }
+.toggle-box .sub-title { @apply mr-1 mb-6 text-base font-light; }
+.toggle-box .btn.toggle { 
+    @apply  w-32 py-3
+            rounded-lg border-2 border-white
+            text-center text-base font-semibold no-underline
+            transition-all duration-300
+            hover:text-purple-700 hover:border-purple-700 hover:scale-110; 
+}
+
+.logo-box { @apply absolute top-0 left-0 w-full h-full z-50 pointer-events-none; }
+.logo-box .logo-image { @apply absolute w-20 h-20 top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2; transition: 0.6s ease-in-out; transition-delay: 0.6s; pointer-events: all; }
+
+/* ---- Sign Up Mode ---- */
+.box-container.active .toggle-box { @apply before:left-1/2 }
+.box-container.active .toggle-panel.toggle-left { @apply -left-1/2; transition-delay: 0.6s; }
+.box-container.active .toggle-panel.toggle-right { @apply right-0; transition-delay: 1.2s; }
+.box-container.active .form-box { @apply right-1/2; }
+
+.box-container.active .form-box.sign-up-form { visibility: visible; }
+.box-container.active .form-box.sign-in-form { visibility: hidden; }
+.box-container.active .logo-image { @apply left-3/4; }
+
+/* ---- Decorations ---- */
+/*
+.decorations { @apply w-full h-full absolute top-0 left-0 overflow-hidden; }
+
+.decorations .decoration:nth-child(1) { @apply top-1/4 right-[15%] scale-150 opacity-40; }
+.decorations .decoration:nth-child(2) { @apply top-[85%] left-[20%] scale-50 opacity-60; }
+.decorations .decoration:nth-child(3) { @apply top-1/2 left-[10%] opacity-40; }
+.decorations .decoration:nth-child(4) { @apply top-[90%] right-0 scale-150 opacity-30; }
+.decorations .decoration:nth-child(5) { @apply top-[15%] left-[40%] scale-[.7] opacity-70; }
+
+.decorations .decoration {
+        @apply  w-36 h-48 absolute
+                rounded-lg bg-gradient-to-br
+                shadow-lg -translate-x-1/2 -translate-y-1/2
+                before:block before:w-[7.5rem] before:h-20 before:absolute before:top-3 before:left-3
+                before:rounded-lg before:bg-purple-200 before:bg-opacity-100 
+                before:shadow-[inset_0px_5px_15px_-3px_rgba(0,_0,_0,_0.35)]
+                after:block after:absolute after:w-12 after:h-[5.5rem] after:top-12 after:right-2 
+                after:rounded-lg after:bg-gradient-to-br;
+}
+.decorations .decoration .floating-block { 
+        @apply  w-8 h-8 absolute z-[1] right-4
+                rounded-lg bg-gradient-to-br; 
+}
+.decorations .decoration .floating-block:nth-child(1) { @apply top-14; }
+.decorations .decoration .floating-block:nth-child(2) { @apply top-24; }
+
+.decorations .decoration .text {
+       @apply   w-16 h-3 absolute bottom-10 left-3 z-[1] 
+                rounded-lg bg-purple-400 bg-opacity-70
+                before:block before:w-[125%] before:h-6 before:absolute before:-top-7 before:left-0 
+                before:rounded-lg before:bg-purple-800 before:bg-opacity-70 
+                after:block after:w-10 after:h-10 after:absolute after:-bottom-8 after:-right-14
+                after:rounded-lg after:bg-gradient-to-br after:from-purple-400 after:to-purple-500;
+}
+
+.decoration.blue { @apply from-blue-200 to-blue-300 after:from-blue-200 after:to-blue-300; }
+.decoration.blue .floating-block { @apply from-pink-200 to-pink-400; }
+
+
+.decoration.pink { @apply from-pink-200 to-pink-300 after:from-pink-200 after:to-pink-300; }
+.decoration.pink .floating-block { @apply from-blue-300 to-blue-400; }
+*/
